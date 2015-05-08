@@ -33,7 +33,7 @@ namespace Battleships
                 shipWasSunk = _shipHealths[targetSquare.ShipIndex] == 0;
             }
 
-            var gameOverMan = Grid.Squares.Cast<Square>().All(x => x.Contents != SquareContents.Ship);
+            var gameOverMan = _shipHealths.All(x => x == 0);
 
             return new FireResult(originalContents, gameOverMan, shipWasSunk);
         }
