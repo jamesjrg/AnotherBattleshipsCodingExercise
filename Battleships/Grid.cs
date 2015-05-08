@@ -29,14 +29,14 @@ namespace Battleships
             return new Coordinates(xMax, yMax);
         }
 
-        public IEnumerable<Square> GetLineOfSquares(Coordinates startingCoordinates, bool vertical, int shipHealth)
+        public IList<Square> GetLineOfSquares(Coordinates startingCoordinates, bool vertical, int shipHealth)
         {
             return Enumerable.Range(0, shipHealth).Select(i =>
             {
                 var xCoord = vertical ? startingCoordinates.X : startingCoordinates.X + i;
                 var yCoord = vertical ? startingCoordinates.Y + i : startingCoordinates.Y;
                 return Squares[xCoord, yCoord];
-            });
+            }).ToList();
         }
     }
 }

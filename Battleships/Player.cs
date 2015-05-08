@@ -56,7 +56,7 @@ namespace Battleships
                     var targetSquares = Grid.GetLineOfSquares(
                         new Coordinates(_random.Next(maxCoords.X), _random.Next(maxCoords.Y)),
                         vertical,
-                        _shipHealths[shipIndex]).ToList();
+                        _shipHealths[shipIndex]);
 
                     if (targetSquares.All(square => square.Contents == SquareContents.Sea))
                     {
