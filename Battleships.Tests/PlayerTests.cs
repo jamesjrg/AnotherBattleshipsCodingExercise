@@ -29,7 +29,7 @@ namespace Battleships.Tests
             var result = player.FiredAt(new Coordinates(0, 1));
             Assert.AreEqual(SquareContents.Sea, result.SquareContents);
             Assert.AreEqual(false, result.ShipWasSunk);
-            Assert.AreEqual(false, result.GameOverMan);
+            Assert.AreEqual(false, result.GameOver);
             Assert.AreEqual(97, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Sea));
             Assert.AreEqual(3, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Ship));
         }
@@ -45,7 +45,7 @@ namespace Battleships.Tests
             var result = player.FiredAt(new Coordinates(0, 0));
             Assert.AreEqual(SquareContents.Ship, result.SquareContents);
             Assert.AreEqual(false, result.ShipWasSunk);
-            Assert.AreEqual(false, result.GameOverMan);
+            Assert.AreEqual(false, result.GameOver);
             Assert.AreEqual(94, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Sea));
             Assert.AreEqual(5, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Ship));
             Assert.AreEqual(1, squares.Cast<Square>().Count(x => x.Contents == SquareContents.DamagedShip));
@@ -65,7 +65,7 @@ namespace Battleships.Tests
                 var result = player.FiredAt(new Coordinates(0, 0));
                 Assert.AreEqual(SquareContents.DamagedShip, result.SquareContents);
                 Assert.AreEqual(false, result.ShipWasSunk);
-                Assert.AreEqual(false, result.GameOverMan);
+                Assert.AreEqual(false, result.GameOver);
                 Assert.AreEqual(94, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Sea));
                 Assert.AreEqual(5, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Ship));
                 Assert.AreEqual(1, squares.Cast<Square>().Count(x => x.Contents == SquareContents.DamagedShip));
@@ -85,7 +85,7 @@ namespace Battleships.Tests
             var result = player.FiredAt(new Coordinates(2, 0));
             Assert.AreEqual(SquareContents.Ship, result.SquareContents);
             Assert.AreEqual(true, result.ShipWasSunk);
-            Assert.AreEqual(false, result.GameOverMan);
+            Assert.AreEqual(false, result.GameOver);
             Assert.AreEqual(94, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Sea));
             Assert.AreEqual(3, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Ship));
             Assert.AreEqual(3, squares.Cast<Square>().Count(x => x.Contents == SquareContents.DamagedShip));
@@ -107,7 +107,7 @@ namespace Battleships.Tests
             var result = player.FiredAt(new Coordinates(2, 1));
             Assert.AreEqual(SquareContents.Ship, result.SquareContents);
             Assert.AreEqual(true, result.ShipWasSunk);
-            Assert.AreEqual(true, result.GameOverMan);
+            Assert.AreEqual(true, result.GameOver);
             Assert.AreEqual(94, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Sea));
             Assert.AreEqual(0, squares.Cast<Square>().Count(x => x.Contents == SquareContents.Ship));
             Assert.AreEqual(6, squares.Cast<Square>().Count(x => x.Contents == SquareContents.DamagedShip));

@@ -38,7 +38,7 @@ namespace Battleships
             yield return string.Format("Target square was: {0}", result.SquareContents);
             if (result.ShipWasSunk)
                 yield return "Ship sunk!";
-            if (result.GameOverMan)
+            if (result.GameOver)
                 yield return "Game over man!";
         }
     }

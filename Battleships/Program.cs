@@ -36,7 +36,7 @@ namespace Battleships
                 foreach (var outputLine in InputOutputMapper.MapOutputToStrings(humanResult))
                     Console.WriteLine("Human turn: {0}", outputLine);
 
-                if (humanResult.GameOverMan)
+                if (humanResult.GameOver)
                 {
                     Console.ReadLine();
                     return;
@@ -47,7 +47,7 @@ namespace Battleships
                 foreach (var outputLine in InputOutputMapper.MapOutputToStrings(computerResult))
                     Console.WriteLine("Computer turn: {0}", outputLine);
 
-                if (!computerResult.GameOverMan) continue;
+                if (!computerResult.GameOver) continue;
 
                 Console.ReadLine();
                 return;
