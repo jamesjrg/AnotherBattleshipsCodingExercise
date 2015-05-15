@@ -33,9 +33,9 @@ namespace Battleships
                 shipWasSunk = _shipHealths[targetSquare.ShipIndex] == 0;
             }
 
-            var gameOverMan = _shipHealths.All(x => x == 0);
+            var gameOver = _shipHealths.All(x => x == 0);
 
-            return new FireResult(originalContents, gameOverMan, shipWasSunk);
+            return new FireResult(originalContents, gameOver, shipWasSunk);
         }
 
         private void PlaceRandomShips()
