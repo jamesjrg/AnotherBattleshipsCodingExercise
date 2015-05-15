@@ -45,6 +45,7 @@
     <Compile Include="FireResult.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="InputOutputMapper.cs" />
+    <Compile Include="LineType.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

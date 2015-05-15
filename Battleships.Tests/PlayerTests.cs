@@ -23,7 +23,7 @@ namespace Battleships.Tests
         public void ShouldHandleFireAndMiss()
         {
             var player = new Player(10, new Dictionary<int, int> { { 3, 2 } }, false);
-            player.ManuallyPlaceShip(new Coordinates(0, 0), false, 0);
+            player.ManuallyPlaceShip(new Coordinates(0, 0), LineType.Horizontal, 0);
             var squares = player.Grid.Squares;
 
             var result = player.FiredAt(new Coordinates(0, 1));
@@ -38,8 +38,8 @@ namespace Battleships.Tests
         public void ShouldHandleFireAndHit()
         {
             var player = new Player(10, new Dictionary<int, int> { { 3, 2 } }, false);
-            player.ManuallyPlaceShip(new Coordinates(0, 0), false, 0);
-            player.ManuallyPlaceShip(new Coordinates(0, 1), false, 1);
+            player.ManuallyPlaceShip(new Coordinates(0, 0), LineType.Horizontal, 0);
+            player.ManuallyPlaceShip(new Coordinates(0, 1), LineType.Horizontal, 1);
             var squares = player.Grid.Squares;
 
             var result = player.FiredAt(new Coordinates(0, 0));
@@ -55,8 +55,8 @@ namespace Battleships.Tests
         public void ShouldHandleFireAndRepeatedlyHitDamagedShip()
         {
             var player = new Player(10, new Dictionary<int, int> { { 3, 2 } }, false);
-            player.ManuallyPlaceShip(new Coordinates(0, 0), false, 0);
-            player.ManuallyPlaceShip(new Coordinates(0, 1), false, 1);
+            player.ManuallyPlaceShip(new Coordinates(0, 0), LineType.Horizontal, 0);
+            player.ManuallyPlaceShip(new Coordinates(0, 1), LineType.Horizontal, 1);
             var squares = player.Grid.Squares;
 
             player.FiredAt(new Coordinates(0, 0));
@@ -76,8 +76,8 @@ namespace Battleships.Tests
         public void ShouldHandleFireAndShipSunk()
         {
             var player = new Player(10, new Dictionary<int, int> { { 3, 2 } }, false);
-            player.ManuallyPlaceShip(new Coordinates(0, 0), false, 0);
-            player.ManuallyPlaceShip(new Coordinates(0, 1), false, 1);
+            player.ManuallyPlaceShip(new Coordinates(0, 0), LineType.Horizontal, 0);
+            player.ManuallyPlaceShip(new Coordinates(0, 1), LineType.Horizontal, 1);
             var squares = player.Grid.Squares;
 
             player.FiredAt(new Coordinates(0, 0));
@@ -95,8 +95,8 @@ namespace Battleships.Tests
         public void ShouldHandleFireAndGameover()
         {
             var player = new Player(10, new Dictionary<int, int> { { 3, 2 } }, false);
-            player.ManuallyPlaceShip(new Coordinates(0, 0), false, 0);
-            player.ManuallyPlaceShip(new Coordinates(0, 1), false, 1);
+            player.ManuallyPlaceShip(new Coordinates(0, 0), LineType.Horizontal, 0);
+            player.ManuallyPlaceShip(new Coordinates(0, 1), LineType.Horizontal, 1);
             var squares = player.Grid.Squares;
 
             player.FiredAt(new Coordinates(0, 0));

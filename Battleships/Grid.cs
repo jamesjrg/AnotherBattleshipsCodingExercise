@@ -19,22 +19,22 @@ namespace Battleships
                     Squares[i, j] = new Square { Contents = SquareContents.Sea };
         }
 
-        public Coordinates GetXAndYMax(bool vertical, int shipHealth)
+        public Coordinates GetXAndYMax(LineType lineType, int shipHealth)
         {
             var gridSize = Squares.GetLength(0);
 
-            var xMax = vertical ? gridSize : gridSize - shipHealth + 1;
-            var yMax = vertical ? gridSize - shipHealth + 1 : gridSize;
+            var xMax = lineType == LineType.Vertical ? gridSize : gridSize - shipHealth + 1;
+            var yMax = lineType == LineType.Vertical ? gridSize - shipHealth + 1 : gridSize;
 
             return new Coordinates(xMax, yMax);
         }
 
-        public IList<Square> GetLineOfSquares(Coordinates startingCoordinates, bool vertical, int shipHealth)
+        public IList<Square> GetLineOfSquares(Coordinates startingCoordinates, LineType lineType, int shipHealth)
         {
             return Enumerable.Range(0, shipHealth).Select(i =>
             {
-                var xCoord = vertical ? startingCoordinates.X : startingCoordinates.X + i;
-                var yCoord = vertical ? startingCoordinates.Y + i : startingCoordinates.Y;
+                var xCoord = lineType == LineType.Vertical ? startingCoordinates.X : startingCoordinates.X + i;
+                var yCoord = lineType == LineType.Vertical ? startingCoordinates.Y + i : startingCoordinates.Y;
                 return Squares[xCoord, yCoord];
             }).ToList();
         }

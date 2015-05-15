@@ -49,13 +49,15 @@ namespace Battleships
                     if (attemptCount == 1000)
                         throw new Exception("Failed to place a ship after 1000 attempts");
 
-                    var vertical = Convert.ToBoolean(_random.Next(2));
+                    var lineType = Convert.ToBoolean(_random.Next(2))
+                        ? LineType.Vertical
+                        : LineType.Horizontal;
 
-                    var maxCoords = Grid.GetXAndYMax(vertical, _shipHealths[shipIndex]);
+                    var maxCoords = Grid.GetXAndYMax(lineType, _shipHealths[shipIndex]);
 
                     var targetSquares = Grid.GetLineOfSquares(
                         new Coordinates(_random.Next(maxCoords.X), _random.Next(maxCoords.Y)),
-                        vertical,
+                        lineType,
                         _shipHealths[shipIndex]);
 
                     if (targetSquares.All(square => square.Contents == SquareContents.Sea))
@@ -73,7 +75,7 @@ namespace Battleships
             }
         }
 
-        public void ManuallyPlaceShip(Coordinates coordinates, bool vertical, int shipIndex)
+        public void ManuallyPlaceShip(Coordinates coordinates, LineType vertical, int shipIndex)
         {
             foreach (var square in Grid.GetLineOfSquares(coordinates, vertical, _shipHealths[shipIndex]))
             {
