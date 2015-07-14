@@ -1,6 +1,6 @@
 namespace Battleships
 {
-    public class FireResult
+    public struct FireResult
     {
         public FireResult(SquareContents squareContents, bool gameOver, bool shipWasSunk)
         {
